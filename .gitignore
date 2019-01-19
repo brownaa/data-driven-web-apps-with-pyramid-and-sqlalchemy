@@ -99,7 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
-.idea/misc.xml
+.idea/
 .idea/modules.xml
 .idea/pypi_templates.iml
 .idea/webResources.xml
