@@ -1,4 +1,9 @@
+#from pathlib import Path
+import os
+
 from pyramid.config import Configurator
+
+from pypi.data.db_session import DbSession
 
 
 def main(global_config, **settings):
@@ -6,6 +11,7 @@ def main(global_config, **settings):
     """
     config = Configurator(settings=settings)
     init_includes(config)
+    init_db(config)
     init_routing(config)
 
     return config.make_wsgi_app()
@@ -45,3 +51,14 @@ def init_routing(config):
     config.add_route('cms_page', '*subpath')
 
     config.scan()
+
+
+def init_db(_):
+    db_file = os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+            'db',
+            'pypi.sqlite'
+        ))
+
+    DbSession.global_init(db_file)

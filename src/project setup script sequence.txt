@@ -1,0 +1,6 @@
+cmd
+activate py36
+python -m venv venv
+deactivate
+venv\Scripts\activate
+python .\setup.py develop
