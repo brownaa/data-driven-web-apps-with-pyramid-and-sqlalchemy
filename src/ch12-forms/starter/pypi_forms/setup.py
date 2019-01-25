@@ -16,7 +16,7 @@ requires = [
     'pyramid_chameleon',
     'pyramid_debugtoolbar',
     'sqlalchemy',
-    'waitress',
+    'waitress', 'passlib'
 ]
 
 tests_require = [
